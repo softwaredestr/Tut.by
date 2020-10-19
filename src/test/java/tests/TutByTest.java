@@ -17,22 +17,37 @@ public class TutByTest extends BaseTest {
                 .openPage()
                 .verifyPresenceOfItem(true);
         new OnlineTheatresPage(driver)
-                .selectGenre(1);
+                .selectGenre(1)
+                .verifyingGenre("Боевик");
     }
-    @BeforeMethod
-    public void openOnlineTheatres(){
+
+
+
+
+    @Test(description = "Scenario 2")
+    public void selectSerialsAndGenres(){
         new AfishaPage(driver)
                 .openPage(4)
                 .verifyPresenceOfItem(true);
         new OnlineTheatresPage(driver)
                 .openPage()
                 .verifyPresenceOfItem(true);
-
-    }
-    @Test(description = "Scenario 2")
-    public void selectSerialsAndGenres(){
         new OnlineTheatresPage(driver)
                 .selectSerials()
-                .selectGenre(2);
+                .selectGenre(2)
+                .verifyingGenre("Детектив");
+    }
+    @Test(description = "Scenario 3")
+    public void selectMultfilmsAndGenres(){
+        new AfishaPage(driver)
+                .openPage(4)
+                .verifyPresenceOfItem(true);
+        new OnlineTheatresPage(driver)
+                .openPage()
+                .verifyPresenceOfItem(true);
+        new OnlineTheatresPage(driver)
+                .selectMult()
+                .selectGenre(3)
+                .verifyingGenre("Фэнтези");
     }
 }

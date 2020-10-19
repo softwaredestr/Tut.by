@@ -28,4 +28,5 @@ public class AfishaPage extends BasePage {
         return this;
     }
 
+
 }
